@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import SendSingMsgCreate
+from .views import SendSingMsgCreate, TransactionID
 from .views import RecipientCreate, RecipientList, RecipientDetail, RecipientsForUser
 from .views import InfobipSendMessage, InfobipSingleMessage, InfobipMessageList, InfobipSendMessage2
 from .views import translateMessages, MessageDelete, MessageCounter, TwilioSendSms, sms_list
@@ -53,7 +53,7 @@ urlpatterns = [
    path("v1/sms/recipients/<str:recipientNumber>", RecipientDetail.as_view(), name="update-recipient"),
    
    #History Views, General Histories
-   path('v1/sms/sms_history/<str:senderID>', SmsHistoryList.as_view(), name="history"),
+   path('v1/sms/sms_history/<str:senderID>', SmsHistoryList.as_view(), name="history"),   
 
    #TeleSign Views
    path("v1/sms/telesign/group_sms", TeleSignCollectionSms.as_view(), name="telesign-group-message"),
