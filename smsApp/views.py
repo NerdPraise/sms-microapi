@@ -1407,7 +1407,6 @@ class SendGroupSms(views.APIView):
 
         #INFOBIP
         if (service_type.upper() == "IF") or (service_type.upper() == "INFOBIP"):
-
             msgstatus = []
             groupID = request.data["groupID"]
             text = request.data["content"]
@@ -1441,7 +1440,7 @@ class SendGroupSms(views.APIView):
                         data = json.loads(data)
                         if res.status == 200:
                             value.save()
-                        return Response({"Status": res.status, "Message": "", "Data": data})
+                        return Response({"Status": res.status, "Success":True, "Message": "", "Data": data})
                     else:
                         return Response({
                             "Success":False, "Status": 400,
