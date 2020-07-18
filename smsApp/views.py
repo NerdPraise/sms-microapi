@@ -506,6 +506,12 @@ class SmsHistoryList(generics.ListAPIView):
         return Message.objects.filter(senderID=senderID)
 
 
+class SMS(generics.ListAPIView):
+    serializer_class = MessageSerializer
+    queryset = Message.objects.all()
+    
+
+
 class SmsHistoryDetail(generics.RetrieveAPIView):
     """
     Call a particular History of user with users senderID

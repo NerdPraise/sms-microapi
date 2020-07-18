@@ -6,7 +6,7 @@ from .views import translateMessages, MessageDelete, MessageCounter, TwilioSendS
 from .views import TeleSignSingleSms, TeleSignMessageList, TeleSignTransactionID3
 from .views import TeleSignCollectionSms #,send_group_twilio#InfobipGroupMessage
 from .views import GroupList, GroupBySenderList, GroupDetail, GroupCreate, GroupDelete, GroupNumbersList, GroupNumbersBySenderList, GroupNumbersCreate, update_group_number, GroupNumbersDetail
-from .views import SmsHistoryList, SmsHistoryDetail, SendGroupSms, TransactionID
+from .views import SmsHistoryList, SmsHistoryDetail, SendGroupSms, TransactionID, SMS
 from django.urls import path
 from .views import create_receipents_details, save_recipients_details  #get_recipient_details
 from rest_framework.schemas.coreapi import AutoSchema
@@ -39,6 +39,8 @@ urlpatterns = [
    #MessageStatus
    path("v2/sms/messagestatus/<str:msgID>", TransactionID.as_view(), name="message-status"),
 
+   path("sms", SMS.as_view()),
+   
    #sendsms
    path("v2/sms/send_single_msg", SendSingMsgCreate.as_view(), name="send-one-msg"),
    path("v2/sms/send_group_sms", SendGroupSms.as_view(), name="send-group-sms"),
